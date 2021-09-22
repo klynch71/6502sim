@@ -35,7 +35,7 @@ Note the dependencies above, then simply download this package into a directory.
 
 From within your downloaded directory run:\
    \> iverilog -o dsn -c file_list.txt\
-   \> vvp dsn
+   \> vvp dsn\
 Then open the 6502_sim.vcd file with GTKWave.
 
 You can change the program that is run by modifying 6502_tb.v.
@@ -44,7 +44,6 @@ If you assemble your own program, you may find the vmem program in the util fold
 
 ## Author 
 Kevin Lynch\
-klynch71@gmail.com
 
 ## License
 
