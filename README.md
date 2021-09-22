@@ -43,7 +43,7 @@ You can change the program that is run by modifying 6502_tb.v.
 If you assemble your own program, you may find the vmem program in the util folder helpful in converting the program's binary output to a verilog memory file.
 
 ## Author 
-Kevin Lynch\
+Kevin Lynch
 
 ## License
 
