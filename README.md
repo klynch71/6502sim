@@ -1,8 +1,6 @@
 # 6502 Verilog Gate-Level Simulator
 > A simulator for the 6502 microprocessor with all internal control signals represented in order to better understand the inner workgings of the 6502.
 
-[![Downloads Stats][npm-downloads]][npm-url]
-
 This is a near gate-level simulator of the 6502 microprocesor with all internal control signals represented.  Most of the control signals come from the random_control_logic block. 
 
 Net numbers used correspond to those used by [Visual6502.org](http://visual6502.org/):
@@ -49,12 +47,4 @@ Kevin Lynch
 
 Distributed under the MIT license. 
 
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
 
