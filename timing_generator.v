@@ -49,7 +49,7 @@ module timing_generator(clk_1, clk_2, rdy, tz_pre_n, t_res_x, t_res_1, timing_n,
   /*
    * Internal latches
    */
-  reg t_res_x_c1;          //reset timimg registers; net: 1357
+  reg t_res_x_c1;          //net: 1357; reset timimg registers
   reg [5:0] timing_c2;     //latched  value of timing signals on clk2 with opposite sign
   reg [5:0] fire_t;        //indicates we should fire the given timing signal (active high)
   reg sync_c2;             //net: 537
