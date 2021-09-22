@@ -1,0 +1,31 @@
+a2
+1f
+9a
+a9
+00
+85
+cc
+a9
+20
+85
+cd
+a0
+0f
+20
+13
+00
+4c
+00
+00
+a9
+00
+88
+91
+cc
+d0
+fb
+60
+@FFFA //Interrupt and Reset Vectors:
+00 90 //NMI Vector
+00 00 //RESET Vector
+00 A0 //INTERRUPT Vector

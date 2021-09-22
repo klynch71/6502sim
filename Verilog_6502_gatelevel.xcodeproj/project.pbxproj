@@ -6,11 +6,114 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXFileReference section */
+		90A4A41626FA66FA00DE5DD5 /* 6502.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 6502.v; sourceTree = "<group>"; };
+		90A4A41726FA672A00DE5DD5 /* 6502_tb.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 6502_tb.v; sourceTree = "<group>"; };
+		90A4A41826FA679200DE5DD5 /* a_input_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = a_input_register.v; sourceTree = "<group>"; };
+		90A4A41926FA67AC00DE5DD5 /* accumulator.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accumulator.v; sourceTree = "<group>"; };
+		90A4A41A26FA67AC00DE5DD5 /* adder_hold_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = adder_hold_register.v; sourceTree = "<group>"; };
+		90A4A41B26FA67F700DE5DD5 /* clock_generator.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clock_generator.v; sourceTree = "<group>"; };
+		90A4A41C26FA67F700DE5DD5 /* decimal_adjust_adder.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = decimal_adjust_adder.v; sourceTree = "<group>"; };
+		90A4A41D26FA67F700DE5DD5 /* b_input_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = b_input_register.v; sourceTree = "<group>"; };
+		90A4A41E26FA67F700DE5DD5 /* file_list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file_list.txt; sourceTree = "<group>"; };
+		90A4A41F26FA67F700DE5DD5 /* increment_logic.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = increment_logic.v; sourceTree = "<group>"; };
+		90A4A42026FA67F700DE5DD5 /* alu.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alu.v; sourceTree = "<group>"; };
+		90A4A42126FA67F700DE5DD5 /* decode_rom.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = decode_rom.v; sourceTree = "<group>"; };
+		90A4A42226FA681E00DE5DD5 /* input_data_latch.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input_data_latch.v; sourceTree = "<group>"; };
+		90A4A42326FA681E00DE5DD5 /* interrupt_and_reset_control.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interrupt_and_reset_control.v; sourceTree = "<group>"; };
+		90A4A42526FA686F00DE5DD5 /* pass_mosfets.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pass_mosfets.v; sourceTree = "<group>"; };
+		90A4A42626FA686F00DE5DD5 /* processor_status_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = processor_status_register.v; sourceTree = "<group>"; };
+		90A4A42726FA686F00DE5DD5 /* precharge_mosfets.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = precharge_mosfets.v; sourceTree = "<group>"; };
+		90A4A42826FA686F00DE5DD5 /* latch.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = latch.v; sourceTree = "<group>"; };
+		90A4A42926FA686F00DE5DD5 /* program_counter_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = program_counter_register.v; sourceTree = "<group>"; };
+		90A4A42A26FA686F00DE5DD5 /* predecode_logic.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = predecode_logic.v; sourceTree = "<group>"; };
+		90A4A42B26FA686F00DE5DD5 /* program_counter_select_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = program_counter_select_register.v; sourceTree = "<group>"; };
+		90A4A42C26FA689A00DE5DD5 /* timing_generator.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timing_generator.v; sourceTree = "<group>"; };
+		90A4A42D26FA689A00DE5DD5 /* ram.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ram.v; sourceTree = "<group>"; };
+		90A4A42E26FA689A00DE5DD5 /* stack_pointer_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stack_pointer_register.v; sourceTree = "<group>"; };
+		90A4A42F26FA689A00DE5DD5 /* ready_control.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ready_control.v; sourceTree = "<group>"; };
+		90A4A43026FA689A00DE5DD5 /* random_control_logic.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = random_control_logic.v; sourceTree = "<group>"; };
+		90A4A43126FA68DB00DE5DD5 /* xy_index_register.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = xy_index_register.v; sourceTree = "<group>"; };
+		90A4A43226FA68DB00DE5DD5 /* tristate_buffer.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tristate_buffer.v; sourceTree = "<group>"; };
+		90A4A43A26FA6F5F00DE5DD5 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		90A4A43B26FA713400DE5DD5 /* visual6502.asm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; path = visual6502.asm; sourceTree = "<group>"; };
+		90A4A43C26FAB5B200DE5DD5 /* timingtest-1.asm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; name = "timingtest-1.asm"; path = "../../Documents/6502/tests/timingtest-1.asm"; sourceTree = "<group>"; };
+		90A4A43D26FB6D9400DE5DD5 /* clear_mem.vmem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clear_mem.vmem; sourceTree = "<group>"; };
+		90A4A43E26FB6DB600DE5DD5 /* 6502_functional_test.vmem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 6502_functional_test.vmem; sourceTree = "<group>"; };
+		90A4A43F26FB6DB600DE5DD5 /* 6502_decimal_test.vmem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 6502_decimal_test.vmem; sourceTree = "<group>"; };
+		90A4A44026FB6DDB00DE5DD5 /* memory.vmem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memory.vmem; sourceTree = "<group>"; };
+		90BDFF3626FB6F48004D1CC4 /* waveform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waveform.png; sourceTree = "<group>"; };
+		90BDFF3726FB6F84004D1CC4 /* clear_mem.asm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; path = clear_mem.asm; sourceTree = "<group>"; };
+		90BDFF3926FB83D0004D1CC4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		90A4A40926FA604200DE5DD5 = {
 			isa = PBXGroup;
 			children = (
+				90A4A41726FA672A00DE5DD5 /* 6502_tb.v */,
+				90BDFF3926FB83D0004D1CC4 /* README.md */,
+				90A4A41626FA66FA00DE5DD5 /* 6502.v */,
+				90A4A41826FA679200DE5DD5 /* a_input_register.v */,
+				90A4A41926FA67AC00DE5DD5 /* accumulator.v */,
+				90A4A41A26FA67AC00DE5DD5 /* adder_hold_register.v */,
+				90A4A42026FA67F700DE5DD5 /* alu.v */,
+				90A4A41D26FA67F700DE5DD5 /* b_input_register.v */,
+				90A4A41B26FA67F700DE5DD5 /* clock_generator.v */,
+				90A4A41C26FA67F700DE5DD5 /* decimal_adjust_adder.v */,
+				90A4A42126FA67F700DE5DD5 /* decode_rom.v */,
+				90A4A41E26FA67F700DE5DD5 /* file_list.txt */,
+				90A4A41F26FA67F700DE5DD5 /* increment_logic.v */,
+				90A4A42226FA681E00DE5DD5 /* input_data_latch.v */,
+				90A4A42326FA681E00DE5DD5 /* interrupt_and_reset_control.v */,
+				90A4A42826FA686F00DE5DD5 /* latch.v */,
+				90A4A44026FB6DDB00DE5DD5 /* memory.vmem */,
+				90A4A42526FA686F00DE5DD5 /* pass_mosfets.v */,
+				90A4A42726FA686F00DE5DD5 /* precharge_mosfets.v */,
+				90A4A42A26FA686F00DE5DD5 /* predecode_logic.v */,
+				90A4A42626FA686F00DE5DD5 /* processor_status_register.v */,
+				90A4A42926FA686F00DE5DD5 /* program_counter_register.v */,
+				90A4A42B26FA686F00DE5DD5 /* program_counter_select_register.v */,
+				90A4A42D26FA689A00DE5DD5 /* ram.v */,
+				90A4A43026FA689A00DE5DD5 /* random_control_logic.v */,
+				90A4A42F26FA689A00DE5DD5 /* ready_control.v */,
+				90A4A43826FA6F1500DE5DD5 /* sim */,
+				90A4A42E26FA689A00DE5DD5 /* stack_pointer_register.v */,
+				90A4A42C26FA689A00DE5DD5 /* timing_generator.v */,
+				90A4A43C26FAB5B200DE5DD5 /* timingtest-1.asm */,
+				90A4A43226FA68DB00DE5DD5 /* tristate_buffer.v */,
+				90A4A43726FA6F0000DE5DD5 /* util */,
+				90BDFF3626FB6F48004D1CC4 /* waveform.png */,
+				90A4A43126FA68DB00DE5DD5 /* xy_index_register.v */,
 			);
+			sourceTree = "<group>";
+		};
+		90A4A43726FA6F0000DE5DD5 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				90A4A43926FA6F4700DE5DD5 /* vmem */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		90A4A43826FA6F1500DE5DD5 /* sim */ = {
+			isa = PBXGroup;
+			children = (
+				90A4A43B26FA713400DE5DD5 /* visual6502.asm */,
+				90BDFF3726FB6F84004D1CC4 /* clear_mem.asm */,
+				90A4A43F26FB6DB600DE5DD5 /* 6502_decimal_test.vmem */,
+				90A4A43E26FB6DB600DE5DD5 /* 6502_functional_test.vmem */,
+				90A4A43D26FB6D9400DE5DD5 /* clear_mem.vmem */,
+			);
+			path = sim;
+			sourceTree = "<group>";
+		};
+		90A4A43926FA6F4700DE5DD5 /* vmem */ = {
+			isa = PBXGroup;
+			children = (
+				90A4A43A26FA6F5F00DE5DD5 /* main.c */,
+			);
+			path = vmem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -18,15 +121,16 @@
 /* Begin PBXLegacyTarget section */
 		90A4A40E26FA604200DE5DD5 /* Verilog_6502_gatelevel */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
+			buildArgumentsString = "-o dsn -c file_list.txt";
 			buildConfigurationList = 90A4A41126FA604200DE5DD5 /* Build configuration list for PBXLegacyTarget "Verilog_6502_gatelevel" */;
 			buildPhases = (
 			);
 			buildToolPath = /opt/homebrew/bin/iverilog;
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = Verilog_6502_gatelevel;
-			passBuildSettingsInEnvironment = 1;
+			passBuildSettingsInEnvironment = 0;
 			productName = Verilog_6502_gatelevel;
 		};
 /* End PBXLegacyTarget section */
