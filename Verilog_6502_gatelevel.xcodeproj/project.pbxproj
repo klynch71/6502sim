@@ -46,12 +46,14 @@
 		90BDFF3726FB6F84004D1CC4 /* clear_mem.asm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.asm; path = clear_mem.asm; sourceTree = "<group>"; };
 		90BDFF3926FB83D0004D1CC4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		90BDFF3A26FB92C0004D1CC4 /* visual6502.vmem */ = {isa = PBXFileReference; lastKnownFileType = text; path = visual6502.vmem; sourceTree = "<group>"; };
+		90BDFF3B26FB9A54004D1CC4 /* Hanson_diagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hanson_diagram.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		90A4A40926FA604200DE5DD5 = {
 			isa = PBXGroup;
 			children = (
+				90BDFF3B26FB9A54004D1CC4 /* Hanson_diagram.png */,
 				90A4A41726FA672A00DE5DD5 /* 6502_tb.v */,
 				90BDFF3926FB83D0004D1CC4 /* README.md */,
 				90A4A41626FA66FA00DE5DD5 /* 6502.v */,
