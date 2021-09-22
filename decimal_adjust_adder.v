@@ -1,5 +1,9 @@
 /*
-*  represents the decimal adjust adders
+*                                       DECIMAL_ADUST_ADDERS
+*
+*                                   Copyright (c) 2021 Kevin Lynch
+*                             This file is licensed under the MIT license
+*
 *  The decimal adjust adders modify the output of the ALU when in decimal mode.
 */
 module decimal_adjust_adder(clk_2, daa_n, dsa_n, half_carry, alu_cout_n, alu_result, adjust_in, adjust_out);
