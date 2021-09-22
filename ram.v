@@ -1,5 +1,5 @@
 /*
-*                                              ram
+*                                              RAM
 *
 *                                   Copyright (c) 2021 Kevin Lynch
 *                             This file is licensed under the MIT license
