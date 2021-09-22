@@ -1,5 +1,4 @@
 # 6502 Verilog Gate-Level Simulator
-> A simulator for the 6502 microprocessor with all internal control signals represented in order to better understand the inner workgings of the 6502.
 
 This is a near gate-level simulator of the 6502 microprocesor with all internal control signals represented.  Most of the control signals come from the random_control_logic block. 
 
