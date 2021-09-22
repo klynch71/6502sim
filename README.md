@@ -13,8 +13,8 @@ The organization of the simulator is based on the [Hanson block diagram](http://
 This model is not intended for synthesis but rather to learn and observe the actual inner workings of the 6502.
 
 To run the simulator using iverilog:
-  > iverilog -o dsn -c file_list.txt
-  > vvp dsn
+  \> iverilog -o dsn -c file_list.txt
+  \> vvp dsn
   
   This will output 6502_sim.vcd which can be observed using GTKWave.
   
@@ -34,8 +34,8 @@ Note the dependencies above, then simply download this package into a directory.
 ## Usage example
 
 From within your downloaded directory run:
-   > iverilog -o dsn -c file_list.txt
-   > vvp dsn
+   \> iverilog -o dsn -c file_list.txt
+   \> vvp dsn
 Then open the 6502_sim.vcd file with GTKWave.
 
 You can change the program that is run by modifying 6502_tb.v.
@@ -43,6 +43,9 @@ You can change the program that is run by modifying 6502_tb.v.
 If you assemble your own program, you may find the vmem program in the util folder helpful in converting the program's
 binary output to a verilog memory file.
 
+## Author 
+Kevin Lynch 
+klynch71@gmail.com
 
 ## License
 
