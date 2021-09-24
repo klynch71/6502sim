@@ -15,7 +15,10 @@
  *    timing_n[4] = T4_
  *    timing-n[5] = T5_
  *
- * The timing signals indicate which cycle of ther operation the cpu is performing:
+ *  The T1 latch on the Hanson block digram corresponds to our latching t_res_1
+ * to generate the sync signal.
+ *
+ * The timing signals indicate which cycle of the operation the cpu is performing:
  *   T0_     : opcode prefetch
  *   T1X_    : operand prefetch
  *   T2_     : opcode is loaded in instruction register and is executed
@@ -27,8 +30,8 @@
  */
 module timing_generator(clk_1, clk_2, rdy, tz_pre_n, t_zero, t_res_1, timing_n, fetch, sync);
 
-  input clk_1;
-  input clk_2;
+  input clk_1;            //net: 710
+  input clk_2;            //net: 943
   input rdy;              //active high version of ready signal (opposite of net: 248)
   input tz_pre_n;         //net: 792; set low when the opcode is a two cycle opcode
   input t_zero;           //net: 1357; reset timing registers
@@ -37,7 +40,7 @@ module timing_generator(clk_1, clk_2, rdy, tz_pre_n, t_zero, t_res_1, timing_n, 
   output fetch;           //net: 879;  fetch instruction
   output reg sync;        //net: 862; goes high when an insstruction fetch is in progress
 
-  assign timing_n[0] = ~t0;                     //t0_n = net; 1536
+  assign timing_n[0] = ~t0;                     //t0_n = net: 1536
   assign timing_n[1] = ~t_reset_c1[1];          //t1_n = net: 156
   assign timing_n[2] = t_zero | t_reset_c1[2];  //t2_n = net: 971
   assign timing_n[3] = t_zero | t_reset_c1[3];  //t3_n = net: 1567
@@ -59,7 +62,7 @@ module timing_generator(clk_1, clk_2, rdy, tz_pre_n, t_zero, t_res_1, timing_n, 
   *
   * Resets for each individual timing signal.  These will hold their value if not rdy,
   * If rdy, these largely act like a shift register of timing_c2 except for t_reset[2]
-  * which uses sync_c2 rather than timing_c2[1] as an input.
+  * which uses sync rather than timing_c2[1] as an input.
   *
   *************************************************************************************************/
   wire [5:0] t_reset;
