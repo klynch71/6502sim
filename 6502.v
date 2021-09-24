@@ -196,7 +196,7 @@ module M6502(CLK_IN, RES_N, READY, IRQ_N, NMI_N, SO_N, DATA, CLK_1_OUT, CLK_2_OU
   //timing generator
   wire [5:0] timing_n;
   wire fetch;
-  timing_generator timing_generator_ins(clk_1, clk_2, rdy, tz_pre_n, t_res_x, t_res_1, timing_n, fetch, SYNC);
+  timing_generator timing_generator_ins(clk_1, clk_2, rdy, tz_pre_n, t_zero, t_res_1, timing_n, fetch, SYNC);
 
   //random control logic
   wire dl_db;       //net: 863;  drive data latch (dl) contents onto internal data bus (db)
@@ -257,7 +257,7 @@ module M6502(CLK_IN, RES_N, READY, IRQ_N, NMI_N, SO_N, DATA, CLK_1_OUT, CLK_2_OU
   wire set_v_flag;  //net: 1177; set overflow flag
   wire clr_v_flag;  //net: 587;  clear overflow flag
   wire db_p;        //net: 781;  load internal databus into processor status register
-  wire t_res_x;     //net: 1215; reset timing registers
+  wire t_zero;     //net: 1215; reset timing registers
   wire t_res_1;     //net: 109;  reset timing register 1 (aka sync when latched on c1)
 
 
@@ -267,7 +267,7 @@ module M6502(CLK_IN, RES_N, READY, IRQ_N, NMI_N, SO_N, DATA, CLK_1_OUT, CLK_2_OU
     inc_pc_n, pcl_db, pcl_adl, pch_pch, adh_pch, pch_db, pch_adh, sb_adh, sb_db, s_adl, sb_s, s_s, s_sb, sb_ac, ac_db,
     ac_sb, sb_x, x_sb, sb_y, y_sb, not_db_add, db_add, adl_add, daa_n, dsa_n, alu_carry_in_n, alu_sums, alu_ands,
     alu_eors, alu_ors, alu_srs, add_adl, add_sb06, add_sb7, zero_add, sb_add, p_db, db0_c_flag, ir5_c_flag, acr_c_flag,
-    db7_n_flag, dbz_z_flag, ir5_i_flag, ir5_d_flag, db6_v_flag, avr_v_flag, set_v_flag, clr_v_flag, db_p, t_res_x, t_res_1,
+    db7_n_flag, dbz_z_flag, ir5_i_flag, ir5_d_flag, db6_v_flag, avr_v_flag, set_v_flag, clr_v_flag, db_p, t_zero, t_res_1,
     RW_N);
 
 endmodule

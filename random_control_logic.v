@@ -100,18 +100,19 @@ module random_control_logic(
   output reg set_v_flag,  //net: 1177; set overflow flag
   output reg clr_v_flag,  //net: 587;  clear overflow flag
   output db_p,            //net: 781;  load internal databus into processor status register
-  output t_res_x,         //net: 1215; reset timing registers
+  output t_zero,          //net: 1357; reset timing registers
   output t_res_1,         //net: 109;  reset timing register 1 (aka sync when latched on c1)
   output reg RW_N         //net: 1156; read/write (low = write);
   );
   /*************************************************************************************************
    *
-   *                          logic for t_res_x (reset timing signals)
+   *                                   t_zero
    *
-   * t_res_x is used to reset the timing signals
+   * t_zero is used to reset the timing signals
    *
    *************************************************************************************************/
-   reg t_res_x_c1;   //net: 1528
+   reg t_res_x_c1;   //net: 1528; same as net: 223
+   assign t_zero = ~t_res_x_c1; //net: 1357
 
   /*
    * alu_cout_held_if_not_rdy (aka ACRL2); net: 916
@@ -1133,4 +1134,3 @@ wire pre_s_sb_n = ~pla[17]; //net: 1586; pla17 = op-T0-tsx
     end
 
 endmodule
-

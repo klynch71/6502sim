@@ -25,34 +25,50 @@
  * is finishing execution.  Thus for a two cycle opcode T0_ + T2_ will both be active
  * on the last cycle.
  */
-module timing_generator(clk_1, clk_2, rdy, tz_pre_n, t_res_x, t_res_1, timing_n, fetch, sync);
+module timing_generator(clk_1, clk_2, rdy, tz_pre_n, t_zero, t_res_1, timing_n, fetch, sync);
 
   input clk_1;
   input clk_2;
   input rdy;              //active high version of ready signal (opposite of net: 248)
   input tz_pre_n;         //net: 792; set low when the opcode is a two cycle opcode
-  input t_res_x;          //net: 1215; reset timing registers
+  input t_zero;           //net: 1357; reset timing registers
   input t_res_1;          //net: 109; pre-latched version of sync
   output [5:0] timing_n;  //the main timing signals 0-5 (active low); nets: 1536, 156, 971, 1567, 690, & 909 (t5)
   output fetch;           //net: 879;  fetch instruction
   output reg sync;        //net: 862; goes high when an insstruction fetch is in progress
 
-  assign timing_n[0] = ~t0;                       //t0_n = net; 1536
-  assign timing_n[1] = ~fire_t[1];                //t1_n = net: 156
-  assign timing_n[2] = ~t_res_x_c1 | ~fire_t[2];  //t2_n = net: 971
-  assign timing_n[3] = ~t_res_x_c1 | ~fire_t[3];  //t3_n = net: 1567
-  assign timing_n[4] = ~t_res_x_c1 | ~fire_t[4];  //t4_n = net: 690
-  assign timing_n[5] = ~t_res_x_c1 | ~fire_t[5];  //t5_n = net: 909
+  assign timing_n[0] = ~t0;                     //t0_n = net; 1536
+  assign timing_n[1] = ~t_reset_c1[1];          //t1_n = net: 156
+  assign timing_n[2] = t_zero | t_reset_c1[2];  //t2_n = net: 971
+  assign timing_n[3] = t_zero | t_reset_c1[3];  //t3_n = net: 1567
+  assign timing_n[4] = t_zero | t_reset_c1[4];  //t4_n = net: 690
+  assign timing_n[5] = t_zero | t_reset_c1[5];  //t5_n = net: 909
 
   assign fetch = rdy & sync_c2; //net: 879
 
   /*
    * Internal latches
    */
-  reg t_res_x_c1;          //net: 1357; reset timimg registers
-  reg [5:0] timing_c2;     //latched  value of timing signals on clk2 with opposite sign
-  reg [5:0] fire_t;        //indicates we should fire the given timing signal (active high)
+  reg [5:0] timing_c2;     //latched  value of timing signals on clk_2 with opposite sign
+  reg [5:0] t_reset_c1;    //reset individual timing signals on clk_1
   reg sync_c2;             //net: 537
+
+  /*************************************************************************************************
+  *
+  *                                       t_reset
+  *
+  * Resets for each individual timing signal.  These will hold their value if not rdy,
+  * If rdy, these largely act like a shift register of timing_c2 except for t_reset[2]
+  * which uses sync_c2 rather than timing_c2[1] as an input.
+  *
+  *************************************************************************************************/
+  wire [5:0] t_reset;
+  assign t_reset[0] = ~(sync | (~t_zero & tz_pre_n)); //net: 732
+  assign t_reset[1] = timing_c2[0] & rdy; //net: 1180
+  assign t_reset[2] = ~((timing_c2[2] & ~rdy) | (sync_c2 & rdy)); //net: 1091
+  assign t_reset[3] = ~((timing_c2[3] & ~rdy) | (timing_c2[2] & rdy)); //net: 428
+  assign t_reset[4] = ~((timing_c2[4] & ~rdy) | (timing_c2[3] & rdy)); //net: 472
+  assign t_reset[5] = ~((timing_c2[5] & ~rdy) | (timing_c2[4] & rdy)); //net: 468
 
   /*************************************************************************************************
   *
@@ -61,28 +77,24 @@ module timing_generator(clk_1, clk_2, rdy, tz_pre_n, t_res_x, t_res_1, timing_n,
   *
   *************************************************************************************************/
   wire t0_c2_rdy = timing_c2[0] & rdy;
-  wire reset_t0 = ~(sync | (t_res_x_c1 & tz_pre_n)); //net: 732
-  wire t0 = reset_t0 | (timing_c2[0] & ~t0_c2_rdy);  //net: 646
+  wire t0 = t_reset[0] | (timing_c2[0] & ~t0_c2_rdy);  //net: 646
 
+  /*************************************************************************************************
+  *
+  *                                    Latch signals
+  *
+   *************************************************************************************************/
   /*
-   * latched signals on clk1
+   * latch timing signals on clk2
    */
-   always @(*)
-      if (clk_1)
-        begin
-          t_res_x_c1 <= t_res_x;
-
-          //hold if not ready, otherwise act more or less like a shift register
-          //except t2 uses sync and not t1 as input
-          fire_t[0] <= 0; //not used
-          fire_t[1] <= timing_c2[0] & rdy;
-          fire_t[2] <= (timing_c2[2] & ~rdy) | (sync_c2 & rdy);
-          fire_t[3] <= (timing_c2[3] & ~rdy) | (timing_c2[2] & rdy);
-          fire_t[4] <= (timing_c2[4] & ~rdy) | (timing_c2[3] & rdy);
-          fire_t[5] <= (timing_c2[5] & ~rdy) | (timing_c2[4] & rdy);
-
-          sync <= t_res_1;
-        end
+  always @(*)
+    if (clk_1)
+      begin
+        sync <= t_res_1;
+        //t_reset_c1[0] is not used.  the net numbers for
+        //t_reset_c1[1-5] are: 1533, 1360, 644, 1606, 18
+        t_reset_c1 <= t_reset;
+      end
 
   /*
    * latch timing signals on clk2
