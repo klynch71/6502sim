@@ -28,6 +28,7 @@
  *
  * This will output 6502_sim.vcd which can then be observed using GTKWave.
  */
+`timescale 100ns/100ns
 module M6502_tb();
 
 reg clk;
@@ -59,7 +60,7 @@ initial begin
   set_overflow_n = 1;
 end
 
-always #10 clk = ~clk;
+always #5 clk = ~clk;
 
 /*************************************************************************************************
  *
@@ -77,7 +78,7 @@ always #10 clk = ~clk;
  * The program starts at address 0x0000
  */
 defparam ram64k.SOURCE = "sim/visual6502.vmem";  //simple increment x, memory location, and dec y subroutine
-integer sim_duration = 40000;
+integer sim_duration = 20000;
 
 /*
  * a simple program to clear 16 consecutive bytes of memory.
@@ -86,19 +87,19 @@ integer sim_duration = 40000;
  * The program starts at address 0x0000
  */
  //defparam ram64k.SOURCE = "sim/clear_mem.vmem";
- //integer sim_duration = 6000;
+ //integer sim_duration = 3000;
 
 /*
  * Full functional test for the 6502 written by Klaus Dorman.  His source code can be found on github:
  * https://github.com/Klaus2m5/6502_65C02_functional_tests
  * the program starts at address 0x0400 and it uses an INT vector of 0x366D
  *
- * Note: the test is exhaustive and even running for 900000 time durations, it's not enough time to finish.
+ * Note: the test is exhaustive and even running for 500000 time durations, it's not enough time to finish.
  * However it is long enough to run through several tests and get to the beginning of the full binary
- * add/subtract test.  A 900000 sim duration with this program, creates an 82MB 6502_sim.vcd file.
+ * add/subtract test.  A 500000 sim duration with this program, creates a 90MB 6502_sim.vcd file.
 */
 //defparam ram64k.SOURCE = "sim/6502_functional_test.vmem";
-//integer sim_duration = 900000;
+//integer sim_duration = 500000;
 
 /*
  * Decimal mode test for the 6502 written by Bruce Clark.
@@ -106,7 +107,7 @@ integer sim_duration = 40000;
  * The program starts at address 0x0200
 */
 //defparam ram64k.SOURCE = "sim/6502_decimal_test.vmem";
-//integer sim_duration = 3600000; //enough for one loop
+//integer sim_duration = 1800000; //enough for one loop
 
 /*************************************************************************************************
  *
