@@ -17,8 +17,8 @@ module interrupt_and_reset_control(clk_1, clk_2, NMI_N, IRQ_N, RES_N, rdy, t0_n,
                                    op_t2_branch, op_t5_brk, interrupt_flag, res_p, res_g,
                                    int_g, brk_done, aic_n, zero_adl);
 
-  input clk_1;
-  input clk_2;
+  input clk_1;                //net: 710
+  input clk_2;                //net: 943
   input NMI_N;                //pad: 1297; non-maskable interrupt input pin
   input IRQ_N;                //pad: 103; interrupt request input pin
   input RES_N;                // pad: 159; reset input pin

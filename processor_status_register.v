@@ -23,8 +23,8 @@
 * bit 0: C = Carry (1 = true)
 */
 module processor_status_register(
-  input clk_1,
-  input clk_2,
+  input clk_1,          //net: 710
+  input clk_2,          //net: 943
   input [7:0] db_in,    //internal data bus
   input break_done,     //break is done (aka brk_6e); net: 1382
   input b_out_n,        //net: 827; break in progress
