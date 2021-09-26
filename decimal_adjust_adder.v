@@ -7,7 +7,7 @@
 *  The decimal adjust adders modify the output of the ALU when in decimal mode.
 */
 module decimal_adjust_adder(clk_2, daa_n, dsa_n, half_carry, alu_cout_n, alu_result, adjust_in, adjust_out);
-  input clk_2;
+  input clk_2; //net: 943
   input daa_n; //net: 1201; decimal add adjust
   input dsa_n; //net: 725; decimal subtract adjust
   input half_carry; //net: 78; carry from bit 3 to 4 in alu; aka c34

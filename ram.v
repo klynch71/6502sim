@@ -4,7 +4,11 @@
 *                                   Copyright (c) 2021 Kevin Lynch
 *                             This file is licensed under the MIT license
 *
-* A RAM module that loads its contents from the memory.vmem file
+* A RAM module that loads its contents from the memory.vmem file.
+* Parameters that can be overridden:
+*    - WIDTH:  memory bit width; default is 8
+*    - DEPTH:  depth of memory 2 ^ (DEPTH); default is 16 for 2^16 = 64k
+*    - SOURCE: source file to load into memory; default is "memory.vmem"
 */
 module ram (address, data, cs_n, rw_n, oe_n);
 
