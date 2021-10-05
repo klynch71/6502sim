@@ -15,8 +15,7 @@ module ready_control(clk_2, READY, rw_n, rdy);
   input rw_n;      //read not write input pin (active low); pad: 1156
   output reg rdy;  //phi2 clocked version of ready or not writing; net 1718 (active high verson of net: 248)
 
-  always @(*)
-    if (clk_2)
+  always @(posedge clk_2)
       rdy <= (READY | ~rw_n); //ignore ready pin if we are writing
 
 endmodule
