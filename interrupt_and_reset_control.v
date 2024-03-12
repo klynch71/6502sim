@@ -81,7 +81,7 @@ module interrupt_and_reset_control(clk_1, clk_2, NMI_N, IRQ_N, RES_N, rdy, t0_n,
   assign vec[1] = set_vec_1_c1; //net: 1481
   wire vec_n = ~(vec[0] | vec[1]); //net: 1134; active low if vectoring
   wire set_vec_1_n = ~(vec_c2[0] | (~rdy & vec[1])); //net: 1290
-  wire nmi_l_or_vec_n = ~(nmi_l | vec_c2 | ~nmi_p); //net: 1368
+  wire nmi_l_or_vec_n = ~(nmi_l | ~vec_n_c2 | ~nmi_p); //net: 1368
   assign nmi_l = ~nmi_c2_c1 & (~nmi_g_c2_c1 | nmi_l_c2);      //net: 1374
   assign nmi_g = ~nmi_l_or_vec_n_c1 & (nmi_g_c2 | brk_done_c1); //net: 264
 
