@@ -62,8 +62,8 @@ module alu(clk_2, sums, ands, eors, ors, srs, a, b, alu_cin_n, daa_n, dsa_n, ove
     wire dc34 = ~(daa_n | (net_388 & not_da_or_and1_or_nor2) | (neor3_and_nand2 & not_da_or_and1_or_nor2)); //net: 1372
 
     //dc78 decimal full carry
-    wire a_nand_b_or_c_45 = a_nand_b[5] | carry_out[4]; //net 757
-    wire possible_dec_adjust = a_nand_b_or_c_45 | a_neor_b[6]; //net: 1030
+    wire a_nand_b_or_c_45n = a_nand_b[5] | ~carry_out[4]; //net 757
+    wire possible_dec_adjust = a_nand_b_or_c_45n | a_neor_b[6]; //net: 1030
     wire nand6_and_neors7 = a_nand_b[6] & a_neor_b[7]; //net: 269
     wire net_570 = a_nand_b[5] & a_neor_b[5] & a_neor_b[6] & ~carry_out[4];
     wire dc78 = ~(daa_n | (nand6_and_neors7 & possible_dec_adjust) | (possible_dec_adjust & net_570)); //net: 333
